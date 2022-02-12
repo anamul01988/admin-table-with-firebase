@@ -5,15 +5,12 @@ import { useState, useEffect } from "react";
 
 const Pages = () => {
   const [record, setRecord] = useState([]);
-  const [searchTerm, setSearchTerm] = useState(" ");
+  const [searchTerm, setSearchTerm] = useState("");
   const searchData = () => {
-      if(searchTerm === ""){
-         return record;
-      }
-    return record.filter(val => {
-        
-      val.userName.toLowerCase().includes(searchTerm.toLowerCase());
-    });
+    if (searchTerm === "") return record;
+    return record.filter((val) =>
+      val.username?.toLowerCase().includes(searchTerm?.toLowerCase())
+    );
   };
 
   const getData = () => {
@@ -24,7 +21,7 @@ const Pages = () => {
 
   useEffect(() => {
     getData();
-  });
+  }, []);
 
   const HandleSearch = (e) => {
     e.preventDefault(); //aita form ta k auto refresh kora theke atkabe. sathe form ta k grabe korbe
@@ -91,16 +88,18 @@ const Pages = () => {
             </tbody> */}
 
             <tbody>
-              {searchData().slice(0, 10).map((output) => (
-                <tr>
-                  <td>{output.id}</td>
-                  <td>{output.name}</td>
-                  <td>{output.email}</td>
-                  <td>{output.username}</td>
-                  <td>{output.website}</td>
-                  <td></td>
-                </tr>
-              ))}
+              {searchData()
+                .slice(0, 10)
+                .map((output) => (
+                  <tr>
+                    <td>{output.id}</td>
+                    <td>{output.name}</td>
+                    <td>{output.email}</td>
+                    <td>{output.username}</td>
+                    <td>{output.website}</td>
+                    <td></td>
+                  </tr>
+                ))}
             </tbody>
             {/* <tbody>
               {record.slice(0, 10).map((output) => (
