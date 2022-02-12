@@ -7,7 +7,7 @@ import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { useUserAuth } from "../context/UserAuthContext";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import Main from "./main/Main";
+// import Main from "./main/Main";
 
 const Home = () => {
   const { logOut, user } = useUserAuth();
@@ -41,8 +41,6 @@ const Home = () => {
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-              {/* <img className="navbar-brand">{logo}</img> */}
-              {/* <a class="navbar-brand" href="#"><img className="logo" src={logo}/></a> */}
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="#">
@@ -62,33 +60,185 @@ const Home = () => {
                 </button>
               </form>
               <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+
+              <li class="nav-item dropdown user-profile-dropdown">
+                        <a href="" class="nav-link user" id="Notify" data-bs-toggle="dropdown">
+                            <img src="assets/img/profile.svg" alt="" class="icon"/>
+                        </a>
+
+                        <div class="dropdown-menu">
+                            <div class="user-profile-section">
+                                <div class="media mx-auto">
+                                    <img src="assets/img/profile.svg" alt="" class="img-fluid mr-2"/>
+                                    <div class="media-body">
+                                        <h5>Anamul haque</h5>
+                                        <p>Super admin</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="dp-main-menu">
+                                <a href="" class="dropdown-item"><span class="fas fa-user"></span>Profile</a>
+                                <a href="" class="dropdown-item"><span class="fas fa-inbox"></span>Inbox</a>
+                                <a href="" class="dropdown-item"><span class="fas fa-lock-open"></span>Look Screen</a>
+                                <a href="" class="dropdown-item"><span class="fas fa-outdent"></span>Log Out</a>
+                            </div>
+                        </div>
+                    </li>
+              <li class="nav-item dropdown user-profile-dropdown">
+                        <a href="" class="nav-link user" id="Notify" data-bs-toggle="dropdown">
+                            <img src="assets/img/settings.svg" alt="" class="icon"/>
+                        </a>
+
+                        <div class="dropdown-menu">
+                            <div class="dp-main-menu">
+                                <a href="" class="dropdown-item"><span class="fas fa-plug"></span>Parmition</a>
+                                <a href="" class="dropdown-item"><span class="fas fa-users"></span>Admins</a>
+                                <a href="" class="dropdown-item"><span class="fas fa-object-ungroup"></span>Design Type</a>
+                                <a href="" class="dropdown-item"><span class="fas fa-palette"></span>Color</a>
+                            </div>
+                        </div>
+                    </li>
+
+
+
                 <li class="nav-item lastList">
-                  {/* <a class="nav-link active" aria-current="page" href="#">Home</a> */}
                   <ExitToAppIcon
                     color="secondary"
                     fonSize="large"
                     onClick={handleLogout}
                   />
-                </li>
+                </li>    
               </ul>
             </div>
           </div>
         </nav>
       </header>
 
-      <main>
-         <Main/>
-      </main>
 
-      {/* <div className="p-4 box mt-3 text-center">
-        Hello Welcome User <br />
-        {user && user.email}
-      </div>
-      <div className="d-grid gap-2">
-        <Button variant="success" onClick={handleLogout}>
-          Log out
-        </Button>
-      </div> */}
+      {/* <!-- ------------------SIDEBAR START----------- --> */}
+        <div class="left-menu">
+            <div class="menubar-content">
+                <nav class="animated bounceInDown">
+                    <ul id="sidebar">
+                        <li class="active">
+                            <a href="index.html"> <i class="fas fa-home"></i> Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#"> <i class="fas fa-box-open"></i> Widgets</a>
+                        </li>
+                        <li>
+                            <a href="#"> <i class="fab fa-uikit"></i> UI Elements</a>
+                        </li>
+                        <li>
+                            <a href="#"> <i class="fas fa-chart-bar"></i> Advanced UI</a>
+                        </li>
+                        <li>
+                            <a href="#"> <i class="fab fa-telegram-plane"></i> Form Elements</a>
+                        </li>
+                        <li>
+                            <a href="#"> <i class="fas fa-edit"></i> Editors</a>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a href="#"> <i class="fas fa-cogs"></i> Settings
+                                <div class="fa fa-caret-down right"></div>
+                            </a>
+                            <ul class="left-menu-dp">
+                                <li><a href=""><i class="fas fa-user-circle"></i>Account</a></li>
+                                <li><a href=""><i class="fas fa-id-card"></i>Profile</a></li>
+                                <li><a href=""><i class="fas fa-fingerprint"></i>Security &amp; Privacy</a></li>
+                                <li><a href=""><i class="fas fa-key"></i>Password</a></li>
+                                <li><a href=""><i class="fas fa-bell"></i>Notification</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"> <i class="fas fa-chart-bar"></i> Charts</a>
+                        </li>
+                        <li>
+                            <a href="#"> <i class="fas fa-table"></i> Tables</a>
+                        </li>
+                        <li>
+                            <a href="#"> <i class="fas fa-search"></i> Popups</a>
+                        </li>
+                        <li>
+                            <a href="#"> <i class="fas fa-bell"></i> Notification</a>
+                        </li>
+                        <li>
+                            <a href="#"> <i class="fas fa-icons"></i> Icons</a>
+                        </li>
+                        <li>
+                            <a href="#"> <i class="fas fa-map-marker-alt"></i> Maps</a>
+                        </li>
+                        <li>
+                            <a href="#"> <i class="fas fa-sad-cry"></i> Error Pages</a>
+                        </li>
+                        <li>
+                            <a href="#"> <i class="fab fa-pagelines"></i> General Pages</a>
+                        </li>
+                        <li>
+                            <a href="#"> <i class="fab fa-opencart"></i> E-Commerce</a>
+                        </li>
+                        <li>
+                            <a href="#"> <i class="fas fa-envelope"></i> E-mail</a>
+                        </li>
+                        <li>
+                            <a href="#"> <i class="fas fa-calendar-alt"></i> Calendar</a>
+                        </li>
+                        <li>
+                            <a href="#"> <i class="fas fa-check-circle"></i> Todo List</a>
+                        </li>
+                        <li>
+                            <a href="#"> <i class="fab fa-envira"></i> Gallery</a>
+                        </li>
+                        <li>
+                            <a href="#"> <i class="fas fa-book"></i> Documentation</a>
+                        </li>
+
+
+                        <li>
+                            <a href="#"> <i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        {/* <!-- ------------------SIDEBAR END----------- --> */}
+
+
+        <div class="content-wrapper">
+            <section class="dashboard-top-sec">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="bg-white top-chart-earn">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="last-month">
+                                            <h5>Dashboard</h5>
+                                            <p>Overview of Latest Month</p>
+
+                                            <div class="earn">
+                                                <h2>$3367.98</h2>
+                                                <p>Current Month Sales</p>
+                                            </div>
+                                            <a href="" class="di-btn purple-gradient">Last Month Summary</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        
+
+
+
     </>
   );
 };
