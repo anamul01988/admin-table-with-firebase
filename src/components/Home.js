@@ -1,5 +1,4 @@
-import React from "react";
-// import Navbar from "./pages/navbar/Navbar";
+import React from 'react';
 import "./Home.css";
 import logo from "./images/logo.jpg";
 import { Button } from "react-bootstrap";
@@ -7,9 +6,29 @@ import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { useUserAuth } from "../context/UserAuthContext";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+// import {useEffect,useState} from 'react';
+import Pages from "./pages/Pages";
 // import Main from "./main/Main";
-
+import { useState,useEffect } from 'react';
 const Home = () => {
+  
+
+  const[record,setRecord] = useState([])
+ 
+  const getData = () =>
+  {
+      fetch('https://jsonplaceholder.typicode.com/users')
+      .then(resposne=> resposne.json())
+      .then(res=>setRecord(res))
+  }
+
+  useEffect(() => {
+     getData();
+  },)
+
+
+
+
   const { logOut, user } = useUserAuth();
   const navigate = useNavigate();
   const handleLogout = async () => {
@@ -19,6 +38,14 @@ const Home = () => {
     } catch (error) {
       console.log(error.message);
     }
+
+
+
+
+
+
+
+
   };
   return (
     <>
@@ -214,8 +241,8 @@ const Home = () => {
                         <div class="col-lg-8">
                             <div class="bg-white top-chart-earn">
                                 <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="last-month">
+                                    <div class="col-sm-4 col-lg-12">
+                                        <div class="last-month ">
                                             <h5>Dashboard</h5>
                                             <p>Overview of Latest Month</p>
 
@@ -226,6 +253,12 @@ const Home = () => {
                                             <a href="" class="di-btn purple-gradient">Last Month Summary</a>
                                         </div>
                                     </div>
+
+
+                                    <Pages/>
+
+
+
                                 </div>
                             </div>
                         </div>
@@ -234,7 +267,42 @@ const Home = () => {
                 </div>
             </section>
         </div>
-
+        
+        {/* <Pages/> */}
+        {/* <div className="content-dashboard">
+               <div class="row ">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+              <h5 class="mt-3 mb-3 text-secondary">
+               Check More Records of Employees
+              </h5>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>No</th>
+                                <th>Label</th>
+                                <th>Header</th>
+                                <th>Column</th>
+                                <th>Record Data</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                         {record.slice(0, 5).map((output)=>
+                            <tr>
+                                <td>{output.id}</td>
+                                <td>{output.name}</td>
+                                <td>{output.email}</td>
+                                <td>{output.username}</td>
+                                <td>{output.website}</td>
+                                <td></td>
+                            </tr>
+                           )}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+        </div> */}
         
 
 
